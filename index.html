@@ -10,6 +10,133 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <script src="/js/script.js"></script>
+  <style>
+    
+.testimonial-section {
+  display: flex;
+  flex-direction: column;
+  width: 1440px;
+  height: 800px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  gap: 80px;
+  margin:0 auto;
+}
+
+.testimonial-title {
+  font-weight: 400;
+  font-size: 48px;
+  text-align: center;
+  color: #252B42;
+}
+
+.swiper {
+  width: 1200px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: relative;
+  padding-bottom: 80px;
+  gap: 60px;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:60px;
+}
+
+.testimonial-logo {
+  height: 60px;
+}
+
+.testimonial-text {
+  font-size: 28px;
+  color: #374754;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  width: 980px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-name {
+  font-size: 16px;
+  color: #374754;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
+
+.user-info span {
+  font-size: 15px;
+  color: #252B42;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #2c3e50;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.swiper-pagination-bullet {
+ 
+
+  height: 23px;
+  width: 23px;
+  border-radius: 35px;
+  background-color: #3498db;
+  opacity: 1;
+
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white;
+  border: 2px solid #3498db;
+}
+
+@media (max-width: 500px) {
+  .testimonial-text {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .swiper {
+    padding-bottom: 100px;
+  }
+}
+  </style>
 </head>
 <body>
   <div class="container">
@@ -89,8 +216,8 @@
     
       <div class="video-section">
         <div class="video-wrapper">
-          <video id="featureVideo" width="100%" poster="">
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+          <video id="featureVideo" width="100%" poster="/assets/images/thumbnail.png">
+            <source src="/assets/video/video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <button id="playPauseBtn" class="play-button">
@@ -98,6 +225,35 @@
           </button>
         </div>
       </div>
+      <script>
+        const video = document.getElementById('featureVideo');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+      
+        // Toggle play/pause when video is clicked
+        video.addEventListener('click', togglePlay);
+      
+        // Toggle play/pause when play button is clicked
+        playPauseBtn.addEventListener('click', (e) => {
+          e.stopPropagation(); // prevents the video click event from firing
+          togglePlay();
+        });
+      
+        function togglePlay() {
+          if (video.paused) {
+            video.play();
+            playPauseBtn.style.display = 'none';
+          } else {
+            video.pause();
+            playPauseBtn.style.display = 'block';
+          }
+        }
+      
+        // Show the play button again when the video ends
+        video.addEventListener('ended', () => {
+          playPauseBtn.style.display = 'block';
+        });
+      </script>
+      
       
       
     </section>
@@ -204,9 +360,9 @@
     </section>
     
     <!-- testinomial section -->
-    <section class="testimonials-section">
+    <!-- <section class="testimonials-section">
       <div class="testimonials-heading">
-        <h2>Testimonials</h2>
+        <h2>Testimonials</h2> 
       </div>
   
       <div class="testimonial-card">
@@ -231,8 +387,83 @@
         <span class="dot"></span>
         <span class="dot active"></span>
       </div>
-    </section>
-
+    </section> -->
+    <div class="testimonial-section">
+      <h2 class="testimonial-title">Testimonials</h2>
+    
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="/assets/images/logos_ibm.svg" alt="IBM" class="testimonial-logo" />
+            <h4 class="testimonial-text">
+              Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.
+            </h4>
+            <div class="profile">
+              <img class="avatar" src="/assets/images/john doe.png" alt="User Image" />
+              <div class="user-info">
+                <div class="user-name">John Doe</div>
+                <span>Ui designer</span>
+              </div>
+            </div>
+          </div>
+    
+          <div class="swiper-slide">
+            <img src="/assets/images/logos_ibm.svg" alt="IBM" class="testimonial-logo" />
+            <h4 class="testimonial-text">
+              Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.
+            </h4>
+            <div class="profile">
+              <img class="avatar" src="/assets/images/john doe.png" alt="User Image" />
+              <div class="user-info">
+                <div class="user-name">John Doe</div>
+                <span>Ui designer</span>
+              </div>
+            </div>
+          </div>
+    
+          <div class="swiper-slide">
+            <img src="/assets/images/logos_ibm.svg" alt="IBM" class="testimonial-logo" />
+            <h4 class="testimonial-text">
+              Most calendars are designed for teams. Slate is designed for freelancers who want a simple way to plan their schedule.
+            </h4>
+            <div class="profile">
+              <img class="avatar" src="/assets/images/john doe.png" alt="User Image" />
+              <div class="user-info">
+                <div class="user-name">John Doe</div>
+                <span>Ui designer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+    <!-- script for testinomial -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper('.swiper', {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        keyboard: {
+          enabled: true,
+          onlyInViewport: true
+        },
+      });
+    </script>
     <!-- Pricing -->
     <section class="pricing-section">
       <div class="pricing-text-content">
@@ -445,7 +676,7 @@
         }
       }
     </script>
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 
   </div>
   

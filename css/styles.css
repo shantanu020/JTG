@@ -279,6 +279,13 @@ video {
   top: 306.59px;
   left: 570.67px;
 }
+  .play-button {
+    z-index: 10;
+  }
+  video {
+    z-index: 1;
+  }
+
 /*  */
 /*  */
 .organize-section {
@@ -772,7 +779,7 @@ video {
   background-color: #0d78d3;
 }
 /* testinomial */
-.testimonials-section {
+/* .testimonials-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -904,7 +911,10 @@ video {
 
 .dot.active {
   background-color: #2091f9;
-}
+} */
+
+
+
 /*  */
 /*  */
 .pricing-section {
@@ -1037,6 +1047,7 @@ video {
 
 .pricing-card__period {
   font-family: 'Open Sans';
+  width: 80px;
   font-weight: 400;
   font-size: 16px;
   line-height: 23px;
@@ -1283,6 +1294,9 @@ video {
   color:#374754;
 
 }
+.loc h6{
+  width:304px;
+}
 
 .contact-section__map iframe {
   width: 516px;
@@ -1300,6 +1314,7 @@ video {
   height: 61px;
   gap: 24px;
   padding: 10px;
+  transform: translateX(-258.52px);
 }
 
 .contact-section__social-icons img {
@@ -1317,6 +1332,7 @@ video {
   height: 100%;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
+  color:#252B42;
 }
 
 .contact-section__modal-content {
@@ -1368,7 +1384,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap:16px;
+  gap:15px;
 }
 
 .footer-column h3 {
@@ -1380,6 +1396,10 @@ footer {
 }
 
 .footer-column ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap:16px;
   list-style: none;
 }
 
